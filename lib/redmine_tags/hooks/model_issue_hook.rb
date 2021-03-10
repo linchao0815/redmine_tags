@@ -15,7 +15,7 @@ module RedmineTags
       # this issue's tag_list and call #save ourselves.
       def controller_issues_new_after_save(context = {})
         save_tags_to_issue context, false
-        context[:issue].save
+        #clc context[:issue].save #don't call save again! It Will cause errors "ActiveRecord::StaleObjectError (Attempted to update a stale object: Issue"
       end
 
       def save_tags_to_issue(context, create_journal)
